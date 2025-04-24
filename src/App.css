@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+@import "themes.css";
+
+
+*{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+  font-family:"League Spartan" , sans-serif;
+
+
+}
+
+.main-container{
+  height:100vh;
+  background-color: var(--main-background);
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator-container{
+  width:35%;
+  height:70%;
+}
+
+.themes-container{
+  display:flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom:30px;
+}
+
+.themes-container p{
+  color:var(--header-color);
+}
+
+.slider{
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  gap:10px;
+  padding:5px 5px;
+  border-radius:999px;
+  background-color:var(--toggle-keypad-background);
+  cursor:pointer;
+}
+
+
+.slider label input{
+  display:none;
+}
+
+.slider label .indicator{
+  display:flex;
+  padding:5px;
+  width:12px;
+  height:12px;
+  border-radius:100%;
+  background-color: transparent;
+  transition: all .4s ease;
+  cursor:pointer;
+}
+
+.slider label input:checked + .indicator{
+  background-color:var(--equal-sign-background);
+  cursor:pointer;
+}
+
+.slider label input:checked + .indicator:hover{
+  background-color:var(--equal-sign-background-hover);
+}
+
+.themes-right{
+  display: flex;
+  align-items: flex-end;
+  gap:25px;
+}
+
+.num-container{
+  color:var(--header-color);
+  display:flex;
+  justify-content: space-around;
+}
+
+.calc-header{
+  font-weight:700;
+  font-size:26px;
+}
+
+
+@media(max-width:768px){
+  .calculator-container{
+    width:60%;
+  }
+}
+
+@media(max-width:500px){
+  .calculator-container{
+    width:95%;
+  }
+}
