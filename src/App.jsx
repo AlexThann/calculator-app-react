@@ -8,11 +8,11 @@ function App() {
   const [theme,setTheme] = useState(()=>{
     const localTheme = localStorage.getItem("THEME");
     if(localTheme==null) return "theme1";
-    return JSON.parse(localTheme)
+    return localTheme;
   })
 
   useEffect(()=>{
-    localStorage.setItem("THEME", JSON.stringify(theme));
+    localStorage.setItem("THEME", theme);
   },[theme])
 
 
