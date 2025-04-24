@@ -1,18 +1,25 @@
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import CalculatorBody from "./CalculatorBody.jsx";
 import './App.css'
 
 function App() {
 
-  const [theme,setTheme] = useState(localStorage.getItem("THEME")!=null?localStorage.getItem("THEME"):"theme1");
+  const [theme,setTheme] = useState(()=>{
+    const localTheme = localStorage.getItem("THEME");
+    if(localTheme==null) return "theme1";
+    return JSON.parse(localTheme)
+  })
+
+  useEffect(()=>{
+    localStorage.setItem("THEME", JSON.stringify(theme));
+  },[theme])
 
 
   function handleChange(e){
     setTheme(e.target.value);
   }
 
-  localStorage.setItem("THEME", theme);
 
   return (
     <main className={"main-container " + theme}>
